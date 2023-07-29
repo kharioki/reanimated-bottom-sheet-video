@@ -24,7 +24,7 @@ function Chat(props) {
       <SafeAreaView style={styles.headerContainer} edges={["top"]}>
         <View style={styles.wrapper}>
           <ArrowLeftIcon />
-          <Text style={styles.title}>Casper</Text>
+          <Text style={styles.title}>Kharioki</Text>
           <TouchableOpacity onPress={toggleSheet}>
             <SettingsIcon />
           </TouchableOpacity>
