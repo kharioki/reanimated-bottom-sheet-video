@@ -4,7 +4,17 @@ import { StyleSheet, Pressable, View } from "react-native";
 import { Gesture, GestureDetector, GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Animated, { FadeIn, FadeOut, SlideInDown, SlideOutDown, runOnJS, useAnimatedStyle, useSharedValue, withSpring, withTiming } from "react-native-reanimated";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  SlideInDown,
+  SlideOutDown,
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming
+} from "react-native-reanimated";
 
 import AccentPicker from "./src/components/AccentPicker";
 import Chat from "./src/components/Chat";
@@ -20,7 +30,7 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 function App() {
   const offset = useSharedValue(0);
   const [isOpen, setOpen] = useState(false);
-  const [accent, setAccent] = useState(ACCENT_COLOR);
+  const accent = useSharedValue(ACCENT_COLOR);
 
   const toggleSheet = () => {
     setOpen(!isOpen);
@@ -67,7 +77,7 @@ function App() {
               >
                 <AccentPicker
                   onPick={(color) => {
-                    setAccent(color);
+                    accent.value = color;
                     toggleSheet();
                   }}
                 />
